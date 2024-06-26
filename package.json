@@ -18,7 +18,7 @@
     "size:why": "size-limit --why packages/react-swipeable-views/lib/index.js",
     "watch": "lerna exec --concurrency 99 -- babel src --out-dir lib --watch",
     "build": "rm -rf packages/*/lib && cross-env NODE_ENV=production lerna exec -- babel --config-file ../../babel.config.js src --out-dir lib --ignore test.js",
-    "release": "yarn build && yarn lerna exec yarn prepublish && lerna publish",
+    "release": "npm run build && npx lerna exec npm run prepublish && npx lerna publish",
     "postrelease": "yarn docs:deploy"
   },
   "author": "Olivier Tassinari <olivier.tassinari@gmail.com> (https://github.com/oliviertassinari)",
@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@babel/cli": "7.0.0",
-    "@babel/core": "7.0.0",
+    "@babel/core": "^7.24.7",
     "@babel/plugin-transform-object-assign": "7.0.0",
     "@babel/plugin-transform-runtime": "7.0.0",
     "@babel/preset-react": "7.0.0",
