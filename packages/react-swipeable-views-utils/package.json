@@ -1,6 +1,6 @@
 {
   "name": "@herobalancer/react-swipeable-views-utils",
-  "version": "0.15.1",
+  "version": "0.15.2",
   "private": false,
   "description": "react-swipeable-views utility modules",
   "main": "lib/index.js",
