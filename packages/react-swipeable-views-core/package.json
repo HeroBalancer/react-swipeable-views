@@ -1,6 +1,6 @@
 {
   "name": "@herobalancer/react-swipeable-views-core",
-  "version": "0.15.0",
+  "version": "0.15.1",
   "description": "react-swipeable-views core modules",
   "main": "lib/index.js",
   "scripts": {
