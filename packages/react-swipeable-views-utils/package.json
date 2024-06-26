@@ -1,6 +1,6 @@
 {
   "name": "@herobalancer/react-swipeable-views-utils",
-  "version": "0.15.2",
+  "version": "0.15.3",
   "private": false,
   "description": "react-swipeable-views utility modules",
   "main": "lib/index.js",
@@ -17,10 +17,10 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.24.7",
+    "@herobalancer/react-swipeable-views-core": "^0.15.0",
     "keycode": "^2.1.7",
     "prop-types": "^15.6.0",
     "react-event-listener": "^0.6.0",
-    "@herobalancer/react-swipeable-views-core": "^0.15.0",
     "shallow-equal": "^1.2.1"
   },
   "devDependencies": {
