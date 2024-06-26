@@ -1,7 +1,7 @@
 {
   "name": "@herobalancer/react-swipeable-views-workspace",
   "version": "0.14.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "lint": "eslint . && echo \"eslint: no lint errors\"",
     "test": "echo \"ok\"",
