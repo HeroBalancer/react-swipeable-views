@@ -1,91 +1,43 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import keycode from 'keycode';
-import EventListener from 'react-event-listener';
-import { mod } from '@herobalancer/react-swipeable-views-core';
+import React, { useCallback, useEffect, useState } from "react";
+import keycode from "keycode";
+import { mod } from "@herobalancer/react-swipeable-views-core";
 
-export default function bindKeyboard(MyComponent) {
-  class BindKeyboard extends React.Component {
-    static propTypes = {
-      /**
-       * @ignore
-       */
-      axis: PropTypes.oneOf(['x', 'x-reverse', 'y', 'y-reverse']),
-      /**
-       * @ignore
-       */
-      children: PropTypes.node,
-      /**
-       * @ignore
-       */
-      index: PropTypes.number,
-      /**
-       * @ignore
-       */
-      onChangeIndex: PropTypes.func,
-      /**
-       * @ignore
-       */
-      slideCount: PropTypes.number,
-    };
+const bindKeyboard = (MyComponent) => {
+  return (props) => {
+    const { axis = 'x', children, index: indexProp, onChangeIndex, slideCount, ...other } = props;
 
-    state = {};
+    const [index, setIndex] = useState(indexProp || 0);
 
-    // eslint-disable-next-line camelcase,react/sort-comp
-    UNSAFE_componentWillMount() {
-      this.setState({
-        index: this.props.index || 0,
-      });
-    }
-
-    // eslint-disable-next-line camelcase,react/sort-comp
-    UNSAFE_componentWillReceiveProps(nextProps) {
-      const { index } = nextProps;
-
-      if (typeof index === 'number' && index !== this.props.index) {
-        this.setState({
-          index,
-        });
+    useEffect(() => {
+      if (typeof indexProp === 'number' && indexProp !== index) {
+        setIndex(indexProp);
       }
-    }
+    }, [indexProp, index]);
 
-    handleKeyDown = event => {
-      let action;
-      const { axis = 'x', children, onChangeIndex, slideCount } = this.props;
+    const handleKeyDown = useCallback((event) => {
+      let action = null;
 
       switch (keycode(event)) {
         case 'page down':
         case 'down':
-          if (axis === 'y') {
-            action = 'decrease';
-          } else if (axis === 'y-reverse') {
-            action = 'increase';
-          }
+          if (axis === 'y') action = 'decrease';
+          else if (axis === 'y-reverse') action = 'increase';
           break;
 
         case 'left':
-          if (axis === 'x') {
-            action = 'decrease';
-          } else if (axis === 'x-reverse') {
-            action = 'increase';
-          }
+          if (axis === 'x') action = 'decrease';
+          else if (axis === 'x-reverse') action = 'increase';
           break;
 
         case 'page up':
         case 'up':
-          if (axis === 'y') {
-            action = 'increase';
-          } else if (axis === 'y-reverse') {
-            action = 'decrease';
-          }
+          if (axis === 'y') action = 'increase';
+          else if (axis === 'y-reverse') action = 'decrease';
           break;
 
         case 'right':
-          if (axis === 'x') {
-            action = 'increase';
-          } else if (axis === 'x-reverse') {
-            action = 'decrease';
-          }
+          if (axis === 'x') action = 'increase';
+          else if (axis === 'x-reverse') action = 'decrease';
           break;
 
         default:
@@ -93,7 +45,7 @@ export default function bindKeyboard(MyComponent) {
       }
 
       if (action) {
-        const indexLatest = this.state.index;
+        const indexLatest = index;
         let indexNew = indexLatest;
 
         if (action === 'increase') {
@@ -106,44 +58,38 @@ export default function bindKeyboard(MyComponent) {
           indexNew = mod(indexNew, slideCount || React.Children.count(children));
         }
 
-        // Is uncontrolled
-        if (this.props.index === undefined) {
-          this.setState({
-            index: indexNew,
-          });
+        if (indexProp === undefined) {
+          setIndex(indexNew);
         }
 
         if (onChangeIndex) {
           onChangeIndex(indexNew, indexLatest);
         }
       }
-    };
+    }, [axis, children, index, indexProp, onChangeIndex, slideCount]);
 
-    handleChangeIndex = (index, indexLatest, meta) => {
-      // Is uncontrolled
-      if (this.props.index === undefined) {
-        this.setState({
-          index,
-        });
+    const handleChangeIndex = useCallback((newIndex, indexLatest, meta) => {
+      if (indexProp === undefined) {
+        setIndex(newIndex);
       }
 
-      if (this.props.onChangeIndex) {
-        this.props.onChangeIndex(index, indexLatest, meta);
+      if (onChangeIndex) {
+        onChangeIndex(newIndex, indexLatest, meta);
       }
-    };
+    }, [indexProp, onChangeIndex]);
 
-    render() {
-      const { index: indexProp, onChangeIndex, ...other } = this.props;
+    useEffect(() => {
+      window.addEventListener('keydown', handleKeyDown);
 
-      const { index } = this.state;
+      return () => {
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    }, [handleKeyDown]);
 
-      return (
-        <EventListener target="window" onKeyDown={this.handleKeyDown}>
-          <MyComponent index={index} onChangeIndex={this.handleChangeIndex} {...other} />
-        </EventListener>
-      );
-    }
-  }
+    return (
+        <MyComponent index={index} onChangeIndex={handleChangeIndex} {...other} />
+    );
+  };
+};
 
-  return BindKeyboard;
-}
+export default bindKeyboard;
