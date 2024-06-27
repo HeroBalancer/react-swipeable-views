@@ -1,6 +1,6 @@
 {
   "name": "@herobalancer/react-swipeable-views-core",
-  "version": "0.15.2",
+  "version": "0.15.5",
   "private": false,
   "description": "react-swipeable-views core modules",
   "main": "lib/index.js",
@@ -28,6 +28,10 @@
   "license": "MIT",
   "engines": {
     "node": ">=6.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/",
+    "access": "restricted"
   },
   "gitHead": "476a38cae86f041baa4d51b90cb3de513eac224b"
 }

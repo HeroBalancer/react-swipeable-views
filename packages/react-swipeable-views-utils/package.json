@@ -1,6 +1,6 @@
 {
   "name": "@herobalancer/react-swipeable-views-utils",
-  "version": "0.15.4",
+  "version": "0.15.5",
   "private": false,
   "description": "react-swipeable-views utility modules",
   "main": "lib/index.js",
@@ -17,11 +17,10 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.24.7",
-    "@herobalancer/react-swipeable-views-core": "^0.15.0",
+    "@herobalancer/react-swipeable-views-core": "^0.15.5",
     "keycode": "^2.1.7",
     "prop-types": "^15.6.0",
-    "react-event-listener": "^0.6.0",
-    "shallow-equal": "^1.2.1"
+    "react-event-listener": "^0.6.6"
   },
   "devDependencies": {
     "pkgfiles": "^2.3.2"
@@ -32,6 +31,10 @@
   "license": "MIT",
   "engines": {
     "node": ">=6.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/",
+    "access": "restricted"
   },
   "gitHead": "476a38cae86f041baa4d51b90cb3de513eac224b"
 }
