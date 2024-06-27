@@ -19,8 +19,7 @@
     "@babel/runtime": "^7.24.7",
     "@herobalancer/react-swipeable-views-core": "^0.16.0",
     "keycode": "^2.1.7",
-    "prop-types": "^15.6.0",
-    "react-event-listener": "^0.6.6"
+    "prop-types": "^15.8.1"
   },
   "devDependencies": {
     "pkgfiles": "^2.3.2"
