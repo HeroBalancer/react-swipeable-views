@@ -1,6 +1,6 @@
 import React from 'react';
 
-const getDisplaySameSlide = (props, nextProps) => {
+export const getDisplaySameSlide = (props, nextProps) => {
   let displaySameSlide = false;
   const getChildrenKey = child => (child ? child.key : 'empty');
 
@@ -20,5 +20,3 @@ const getDisplaySameSlide = (props, nextProps) => {
 
   return displaySameSlide;
 };
-
-export default getDisplaySameSlide;

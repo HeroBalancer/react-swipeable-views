@@ -4,6 +4,7 @@
   "private": false,
   "description": "react-swipeable-views utility modules",
   "main": "lib/index.js",
+  "type": "module",
   "scripts": {
     "prepublish": "pkgfiles"
   },

@@ -4,6 +4,7 @@
   "private": false,
   "description": "A React component for swipeable views",
   "main": "lib/index.js",
+  "type": "module",
   "scripts": {
     "prepublish": "pkgfiles"
   },

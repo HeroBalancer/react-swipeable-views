@@ -2,7 +2,7 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import { assert } from 'chai';
 import { spy, stub, useFakeTimers } from 'sinon';
-import SwipeableViews, { findNativeHandler, getDomTreeShapes } from './SwipeableViews';
+import { SwipeableViews, findNativeHandler, getDomTreeShapes } from './SwipeableViews';
 
 function simulateSwipeMove(wrapper, event) {
   return wrapper.instance().handleSwipeMove({

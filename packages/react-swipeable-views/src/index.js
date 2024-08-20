@@ -1,1 +1,1 @@
-export { default, SwipeableViewsContext } from './SwipeableViews';
+export { SwipeableViews, SwipeableViewsContext } from './SwipeableViews';

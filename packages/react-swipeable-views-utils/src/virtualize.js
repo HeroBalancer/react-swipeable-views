@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { mod } from '@herobalancer/react-swipeable-views-core';
 
-export default function virtualize(MyComponent) {
+export function virtualize(MyComponent) {
   class Virtualize extends PureComponent {
     timer = null;
 

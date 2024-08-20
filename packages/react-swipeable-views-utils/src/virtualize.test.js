@@ -4,7 +4,7 @@ import React from 'react';
 import { assert } from 'chai';
 import { shallow } from 'enzyme';
 import { spy } from 'sinon';
-import virtualize from './virtualize';
+import { virtualize } from './virtualize';
 
 const Empty = () => <div />;
 const VirtualizeSwipeableViews = virtualize(Empty);

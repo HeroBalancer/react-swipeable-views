@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import keycode from "keycode";
 import { mod } from "@herobalancer/react-swipeable-views-core";
 
-const bindKeyboard = (MyComponent) => {
+export const bindKeyboard = (MyComponent) => {
   return (props) => {
     const { axis = 'x', children, index: indexProp, onChangeIndex, slideCount, ...other } = props;
 
@@ -91,5 +91,3 @@ const bindKeyboard = (MyComponent) => {
     );
   };
 };
-
-export default bindKeyboard;

@@ -203,7 +203,27 @@ if (process.env.NODE_ENV !== 'production') {
   SwipeableViewsContext.displayName = 'SwipeableViewsContext';
 }
 
-class SwipeableViews extends React.Component {
+export class SwipeableViews extends React.Component {
+  // eslint-disable-next-line react/sort-comp
+  static defaultProps = {
+    animateHeight: false,
+    animateTransitions: true,
+    axis: 'x',
+    disabled: false,
+    disableLazyLoading: false,
+    enableMouseEvents: false,
+    hysteresis: 0.6,
+    ignoreNativeScroll: false,
+    index: 0,
+    threshold: 5,
+    springConfig: {
+      duration: '0.35s',
+      easeFunction: 'cubic-bezier(0.15, 0.3, 0.25, 1)',
+      delay: '0s',
+    },
+    resistance: false,
+  };
+
   rootNode = null;
 
   containerNode = null;
@@ -1004,24 +1024,3 @@ SwipeableViews.propTypes = {
    */
   threshold: PropTypes.number,
 };
-
-SwipeableViews.defaultProps = {
-  animateHeight: false,
-  animateTransitions: true,
-  axis: 'x',
-  disabled: false,
-  disableLazyLoading: false,
-  enableMouseEvents: false,
-  hysteresis: 0.6,
-  ignoreNativeScroll: false,
-  index: 0,
-  threshold: 5,
-  springConfig: {
-    duration: '0.35s',
-    easeFunction: 'cubic-bezier(0.15, 0.3, 0.25, 1)',
-    delay: '0s',
-  },
-  resistance: false,
-};
-
-export default SwipeableViews;

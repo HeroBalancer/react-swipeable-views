@@ -1,5 +1,5 @@
 import { assert } from 'chai';
-import mod from './mod';
+import { mod } from './mod';
 
 describe('mod', () => {
   it('should work when the integer is zero', () => {

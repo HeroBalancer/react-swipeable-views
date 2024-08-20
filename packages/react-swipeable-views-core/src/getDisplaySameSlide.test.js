@@ -1,7 +1,7 @@
 import React from 'react';
 import { assert } from 'chai';
 import { mount } from 'enzyme';
-import getDisplaySameSlide from './getDisplaySameSlide';
+import { getDisplaySameSlide } from './getDisplaySameSlide';
 
 const SwipeableViews = ({
   index, // eslint-disable-line react/prop-types

@@ -1,6 +1,6 @@
 import React from 'react';
 import { assert } from 'chai';
-import computeIndex from './computeIndex';
+import { computeIndex } from './computeIndex';
 
 describe('computeIndex', () => {
   let children;

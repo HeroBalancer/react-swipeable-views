@@ -1,5 +1,5 @@
-export { default as checkIndexBounds } from './checkIndexBounds';
-export { default as computeIndex } from './computeIndex';
-export { default as constant } from './constant';
-export { default as getDisplaySameSlide } from './getDisplaySameSlide';
-export { default as mod } from './mod';
+export { checkIndexBounds } from './checkIndexBounds';
+export { computeIndex } from './computeIndex';
+export { constant } from './constant';
+export { getDisplaySameSlide } from './getDisplaySameSlide';
+export { mod } from './mod';

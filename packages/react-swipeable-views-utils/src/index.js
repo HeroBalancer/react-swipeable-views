@@ -1,2 +1,2 @@
-export { default as bindKeyboard } from './bindKeyboard';
-export { default as virtualize } from './virtualize';
+export { bindKeyboard } from './bindKeyboard';
+export { virtualize } from './virtualize';

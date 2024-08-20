@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { assert } from 'chai';
 import { spy } from 'sinon';
 import keycode from 'keycode';
-import bindKeyboard from './bindKeyboard';
+import { bindKeyboard } from './bindKeyboard';
 
 const Empty = () => <div />;
 const BindKeyboardSwipeableViews = bindKeyboard(Empty);

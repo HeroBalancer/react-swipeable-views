@@ -3,7 +3,7 @@
 import React from 'react';
 import { stub } from 'sinon';
 import { assert } from 'chai';
-import checkIndexBounds from './checkIndexBounds';
+import { checkIndexBounds } from './checkIndexBounds';
 
 describe('checkIndexBounds', () => {
   let children;
