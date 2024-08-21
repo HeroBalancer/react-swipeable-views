@@ -2,6 +2,7 @@
   "name": "@herobalancer/react-swipeable-views-workspace",
   "version": "0.14.0",
   "private": false,
+  "type": "module",
   "scripts": {
     "lint": "eslint . && echo \"eslint: no lint errors\"",
     "test": "echo \"ok\"",
@@ -18,8 +19,7 @@
     "size:why": "size-limit --why packages/react-swipeable-views/lib/index.js",
     "watch": "lerna exec --concurrency 99 -- babel src --out-dir lib --watch",
     "build": "rm -rf packages/*/lib && cross-env NODE_ENV=production lerna exec -- babel --config-file ../../babel.config.js src --out-dir lib --ignore test.js",
-    "release": "npm run build && npx lerna exec npm run prepublish && npx lerna publish",
-    "postrelease": "npm run docs:deploy"
+    "release": "npm run build && npx lerna exec npm run prepublish && npx lerna publish"
   },
   "author": "Olivier Tassinari <olivier.tassinari@gmail.com> (https://github.com/oliviertassinari)",
   "license": "MIT",

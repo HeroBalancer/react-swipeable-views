@@ -1,30 +1,21 @@
-let defaultPresets;
-
-// We release a ES version of Material-UI.
-// It's something that matches the latest official supported features of JavaScript.
-// Nothing more (stage-1, etc), nothing less (require, etc).
-if (process.env.BABEL_ENV === 'es') {
-  defaultPresets = [];
-} else {
-  defaultPresets = [
-    [
-      '@babel/preset-env',
-      {
-        targets: {
-          ie: 10,
-          edge: 14,
-          firefox: 28,
-          chrome: 29,
-          safari: 9,
-          node: '6.11',
-        },
-        modules: ['modules', 'production-umd'].includes(process.env.BABEL_ENV) ? false : 'commonjs',
+const defaultPresets = [
+  [
+    '@babel/preset-env',
+    {
+      targets: {
+        ie: 10,
+        edge: 14,
+        firefox: 28,
+        chrome: 29,
+        safari: 9,
+        node: '6.11',
       },
-    ],
-  ];
-}
+      modules: false,  // Always use ES modules
+    },
+  ],
+];
 
-module.exports = {
+export default {
   presets: defaultPresets.concat(['@babel/preset-react']),
   plugins: [
     ['@babel/plugin-proposal-class-properties', { loose: true }],
@@ -32,7 +23,7 @@ module.exports = {
       '@babel/plugin-proposal-object-rest-spread',
       {
         // Workaround for https://github.com/babel/babel/issues/8323
-        loose: process.env.BABEL_ENV !== 'es',
+        loose: false,  // Always keep ES modules
       },
     ],
     '@babel/plugin-transform-object-assign',
