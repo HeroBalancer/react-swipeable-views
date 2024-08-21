@@ -1,5 +1,5 @@
 import React from 'react';
-import constant from './constant';
+import { constants } from './constant';
 
 export function computeIndex(params) {
   const { children, startIndex, startX, pageX, viewLength, resistance } = params;
@@ -18,9 +18,9 @@ export function computeIndex(params) {
       newStartX = (index - startIndex) * viewLength + pageX;
     }
   } else if (index < 0) {
-    index = Math.exp(index * constant.RESISTANCE_COEF) - 1;
+    index = Math.exp(index * constants.RESISTANCE_COEF) - 1;
   } else if (index > indexMax) {
-    index = indexMax + 1 - Math.exp((indexMax - index) * constant.RESISTANCE_COEF);
+    index = indexMax + 1 - Math.exp((indexMax - index) * constants.RESISTANCE_COEF);
   }
 
   return {

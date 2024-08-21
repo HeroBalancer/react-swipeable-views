@@ -1,4 +1,4 @@
-export default {
+export const constants = {
   RESISTANCE_COEF: 0.6,
 
   // This value is closed to what browsers are using internally to
