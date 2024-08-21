@@ -2,7 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import warning from 'warning';
 import {
-  constant,
+  constants,
   checkIndexBounds,
   computeIndex,
   getDisplaySameSlide,
@@ -442,7 +442,7 @@ export class SwipeableViews extends React.Component {
       const dx = Math.abs(touch.pageX - this.startX);
       const dy = Math.abs(touch.pageY - this.startY);
 
-      const isSwiping = dx > dy && dx > constant.UNCERTAINTY_THRESHOLD;
+      const isSwiping = dx > dy && dx > constants.UNCERTAINTY_THRESHOLD;
 
       // We let the parent handle the scroll.
       if (
@@ -461,7 +461,7 @@ export class SwipeableViews extends React.Component {
         event.preventDefault();
       }
 
-      if (isSwiping === true || dy > constant.UNCERTAINTY_THRESHOLD) {
+      if (isSwiping === true || dy > constants.UNCERTAINTY_THRESHOLD) {
         this.isSwiping = isSwiping;
         this.startX = touch.pageX; // Shift the starting point.
 
