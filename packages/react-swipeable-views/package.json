@@ -1,6 +1,6 @@
 {
   "name": "@herobalancer/react-swipeable-views",
-  "version": "0.17.1",
+  "version": "0.17.2",
   "private": false,
   "description": "A React component for swipeable views",
   "main": "lib/index.js",
@@ -24,8 +24,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.24.7",
-    "@herobalancer/react-swipeable-views-core": "^0.17.1",
-    "@herobalancer/react-swipeable-views-utils": "^0.17.1",
+    "@herobalancer/react-swipeable-views-core": "^0.17.2",
+    "@herobalancer/react-swipeable-views-utils": "^0.17.2",
     "prop-types": "^15.5.4",
     "warning": "^4.0.1"
   },
