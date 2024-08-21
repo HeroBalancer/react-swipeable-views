@@ -203,6 +203,7 @@ if (process.env.NODE_ENV !== 'production') {
   SwipeableViewsContext.displayName = 'SwipeableViewsContext';
 }
 
+//Change for good shit
 export class SwipeableViews extends React.Component {
   // eslint-disable-next-line react/sort-comp
   static defaultProps = {
